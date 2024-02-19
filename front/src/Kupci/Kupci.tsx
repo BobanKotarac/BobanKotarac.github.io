@@ -12,7 +12,7 @@ interface Kupci {
   ku_pib:number, 
   ku_mat:number, 
   ku_sd:number
-  }
+}
 
 function Kupci() {
   const [data, setData] = useState<Kupci[]>();

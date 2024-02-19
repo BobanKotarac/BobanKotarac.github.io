@@ -13,6 +13,12 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import PersonIcon from '@material-ui/icons/Person';
+import KeyboardIcon from '@material-ui/icons/Keyboard';
+import Inventory2Icon from '@mui/icons-material/Inventory2';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import SubtitlesIcon from '@mui/icons-material/Subtitles';
+import PaymentsIcon from '@mui/icons-material/Payments';
 
 // Import other components
 import Home from './Home/Home.tsx';
@@ -93,26 +99,26 @@ function App() {
             </ListItem>
         
             <ListItem button onClick={handleUnosClick}>
-              <ListItemIcon><HomeIcon /></ListItemIcon>
+              <ListItemIcon><KeyboardIcon /></ListItemIcon>
               <ListItemText primary="Unos" />
               {openUnos ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={openUnos} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem button className={classes.nestedListItem} component={Link}  to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><ReceiptIcon /></ListItemIcon>
                   <ListItemText primary="Fakture" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><SubtitlesIcon /></ListItemIcon>
                   <ListItemText primary="Šifarnici" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><ContentPasteIcon /></ListItemIcon>
                   <ListItemText primary="Dokumenta" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><PaymentsIcon /></ListItemIcon>
                   <ListItemText primary="Uplate" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
@@ -194,7 +200,7 @@ function App() {
 
 
             <ListItem button onClick={handleRobaClick}>
-              <ListItemIcon><HomeIcon /></ListItemIcon>
+              <ListItemIcon><Inventory2Icon /></ListItemIcon>
               <ListItemText primary="Roba" />
               {openRoba ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
@@ -261,7 +267,7 @@ function App() {
                   <ListItemText primary="Knjiga prihoda" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><PaymentsIcon /></ListItemIcon>
                   <ListItemText primary="Uplata akontacija" />
                 </ListItem>
               </List>
@@ -280,11 +286,11 @@ function App() {
                   <ListItemText primary="Nivelacija" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><SubtitlesIcon /></ListItemIcon>
                   <ListItemText primary="Šifarnici" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><ContentPasteIcon /></ListItemIcon>
                   <ListItemText primary="Dokumenta" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
@@ -292,7 +298,7 @@ function App() {
                   <ListItemText primary="Tarife" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><ReceiptIcon /></ListItemIcon>
                   <ListItemText primary="Fakture" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
@@ -320,7 +326,7 @@ function App() {
                   <ListItemText primary="Obrazac KEPU" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemIcon><ReceiptIcon /></ListItemIcon>
                   <ListItemText primary="Pregled faktura" />
                 </ListItem>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">

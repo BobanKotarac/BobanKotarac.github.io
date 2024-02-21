@@ -25,9 +25,8 @@ import Home from './Home/Home.tsx';
 import Dobavljaci from './Dobavljaci/Dobavljaci.tsx';
 import Settings from './Settings/Settings.tsx';
 import Kupci from './Kupci/Kupci.tsx';
-
-
-
+import KupacUnos from './Unos/Kupac.tsx';
+import Unos from './Unos/Unos.tsx';
 
 const drawerWidth = 240;
 
@@ -48,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   nestedListItem: {
     paddingLeft:"30px"
+  },
+  doubleNestedListItem: {
+    paddingLeft:"45px"
   }
 }));
 
@@ -57,6 +59,7 @@ function App() {
   const [openUnos, setOpenUnos] = useState(false);
   const [openRoba, setOpenRoba] = useState(false);
   const [openPregled, setOpenPregled] = useState(false);
+  const [openSifarnik, setOpenSifarnik] = useState(false);
 
   const handleKupciClick = () => {
     setOpenKupci(!openKupci);
@@ -74,12 +77,20 @@ function App() {
     setOpenPregled(!openPregled);
   };
 
+  const handleSifarnikClick = () => {
+    setOpenSifarnik(!openSifarnik);
+  };
+
+  
+
   // Define routes
   const routes = [
     { path: '/', element: <Home /> },
     { path: '/dobavljaci', element: <Dobavljaci /> },
     { path: '/settings', element: <Settings /> },
-    { path: '/kupci', element: <Kupci /> }
+    { path: '/kupci', element: <Kupci /> },
+    { path: '/kupac', element: <KupacUnos /> },
+    { path: '/unos', element: <Unos /> }
   ];
 
   return (
@@ -105,14 +116,29 @@ function App() {
             </ListItem>
             <Collapse in={openUnos} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItem button className={classes.nestedListItem} component={Link}  to="/kupci">
+                <ListItem button className={classes.nestedListItem} component={Link}  to="/unos">
                   <ListItemIcon><ReceiptIcon /></ListItemIcon>
                   <ListItemText primary="Fakture" />
                 </ListItem>
-                <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
+                <ListItem button className={classes.nestedListItem} onClick={handleSifarnikClick} component="div">
                   <ListItemIcon><SubtitlesIcon /></ListItemIcon>
                   <ListItemText primary="Šifarnici" />
+                  {openSifarnik ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
+                  <Collapse in={openSifarnik} timeout="auto" unmountOnExit>
+                    <ListItem button className={classes.doubleNestedListItem} component={Link}  to="/unos">
+                      <ListItemIcon><ReceiptIcon /></ListItemIcon>
+                      <ListItemText primary="Kupaca" />
+                    </ListItem>
+                    <ListItem button className={classes.doubleNestedListItem} component={Link}  to="/unos">
+                      <ListItemIcon><ReceiptIcon /></ListItemIcon>
+                      <ListItemText primary="Faktura" />
+                    </ListItem>
+                    <ListItem button className={classes.doubleNestedListItem} component={Link}  to="/unos">
+                      <ListItemIcon><ReceiptIcon /></ListItemIcon>
+                      <ListItemText primary="Dobavljaca" />
+                    </ListItem>
+                  </Collapse>
                 <ListItem button className={classes.nestedListItem} component={Link} to="/kupci">
                   <ListItemIcon><ContentPasteIcon /></ListItemIcon>
                   <ListItemText primary="Dokumenta" />
